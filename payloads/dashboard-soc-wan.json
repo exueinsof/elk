@@ -1,0 +1,24 @@
+{
+  "attributes": {
+    "title": "SOC WAN Threat Monitoring",
+    "hits": 0,
+    "description": "WAN-side monitoring for blocked external sources, attack countries and targeted internal assets.",
+    "panelsJSON": "[{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":0,\"w\":24,\"h\":15,\"i\":\"1\"},\"panelIndex\":\"1\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_1\"},{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":0,\"w\":24,\"h\":10,\"i\":\"2\"},\"panelIndex\":\"2\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_2\"},{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":10,\"w\":12,\"h\":8,\"i\":\"3\"},\"panelIndex\":\"3\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_3\"},{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":36,\"y\":10,\"w\":12,\"h\":8,\"i\":\"4\"},\"panelIndex\":\"4\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_4\"},{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":15,\"w\":24,\"h\":12,\"i\":\"5\"},\"panelIndex\":\"5\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_5\"},{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":18,\"w\":24,\"h\":12,\"i\":\"6\"},\"panelIndex\":\"6\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_6\"}]",
+    "optionsJSON": "{\"useMargins\":true,\"hidePanelTitles\":false}",
+    "version": 1,
+    "timeRestore": true,
+    "kibanaSavedObjectMeta": {
+      "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+    },
+    "timeFrom": "now-24h",
+    "timeTo": "now"
+  },
+  "references": [
+    { "name": "1:panel_1", "type": "visualization", "id": "635e9124-c53b-4e52-94f1-e83e1bb7d900" },
+    { "name": "2:panel_2", "type": "visualization", "id": "0fd0a2f9-4ddb-4105-8026-87128b1152bc" },
+    { "name": "3:panel_3", "type": "visualization", "id": "soc-external-blocked-sources-table" },
+    { "name": "4:panel_4", "type": "visualization", "id": "soc-external-countries-table" },
+    { "name": "5:panel_5", "type": "visualization", "id": "soc-targeted-hosts-table" },
+    { "name": "6:panel_6", "type": "visualization", "id": "soc-potential-scanners-table" }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "pfSense External To Internal Block Burst",
+  "rule_id": "pfsense_external_inbound_block_burst",
+  "description": "Repeated blocked inbound attempts from the same external source toward internal assets.",
+  "risk_score": 73,
+  "severity": "high",
+  "type": "threshold",
+  "index": ["logs-pfsense.*-*"],
+  "query": "event.dataset: \"pfsense.firewall\" and event.action: \"block\" and labels.traffic_flow: \"external_to_internal\" and source.ip:*",
+  "language": "kuery",
+  "from": "now-15m",
+  "interval": "5m",
+  "enabled": true,
+  "false_positives": [],
+  "references": [],
+  "tags": ["pfsense", "soc", "wan", "custom"],
+  "threshold": {
+    "field": ["source.ip"],
+    "value": 3
+  },
+  "author": ["Codex"],
+  "version": 1
+}

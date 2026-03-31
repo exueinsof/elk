@@ -1,0 +1,19 @@
+{
+  "name": "pfSense sshguard Stopped Monitoring",
+  "rule_id": "pfsense_sshguard_stopped_monitoring",
+  "description": "sshguard stopped unexpectedly or exited on signal, reducing host-level brute force protection visibility.",
+  "risk_score": 47,
+  "severity": "medium",
+  "type": "query",
+  "index": ["logs-pfsense.*-*"],
+  "query": "event.dataset: \"pfsense.system\" and process.name: \"sshguard\" and message: \"Exiting on signal.\"",
+  "language": "kuery",
+  "from": "now-30m",
+  "interval": "10m",
+  "enabled": true,
+  "false_positives": [],
+  "references": [],
+  "tags": ["pfsense", "soc", "system", "sshguard", "custom"],
+  "author": ["Codex"],
+  "version": 1
+}

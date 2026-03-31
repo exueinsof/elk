@@ -1,0 +1,24 @@
+{
+  "attributes": {
+    "title": "SOC LAN and Egress Activity",
+    "hits": 0,
+    "description": "Internal host activity, egress destinations, ports and pfSense system process visibility.",
+    "panelsJSON": "[{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":0,\"w\":12,\"h\":10,\"i\":\"1\"},\"panelIndex\":\"1\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_1\"},{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":12,\"y\":0,\"w\":12,\"h\":10,\"i\":\"2\"},\"panelIndex\":\"2\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_2\"},{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":0,\"w\":12,\"h\":10,\"i\":\"3\"},\"panelIndex\":\"3\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_3\"},{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":36,\"y\":0,\"w\":12,\"h\":10,\"i\":\"4\"},\"panelIndex\":\"4\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_4\"},{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":10,\"w\":24,\"h\":10,\"i\":\"5\"},\"panelIndex\":\"5\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_5\"},{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":10,\"w\":24,\"h\":10,\"i\":\"6\"},\"panelIndex\":\"6\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_6\"}]",
+    "optionsJSON": "{\"useMargins\":true,\"hidePanelTitles\":false}",
+    "version": 1,
+    "timeRestore": true,
+    "kibanaSavedObjectMeta": {
+      "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+    },
+    "timeFrom": "now-24h",
+    "timeTo": "now"
+  },
+  "references": [
+    { "name": "1:panel_1", "type": "visualization", "id": "soc-internal-top-talkers-table" },
+    { "name": "2:panel_2", "type": "visualization", "id": "soc-egress-top-destinations-table" },
+    { "name": "3:panel_3", "type": "visualization", "id": "soc-egress-top-ports-pie" },
+    { "name": "4:panel_4", "type": "visualization", "id": "5ca302f7-9dc9-4df5-a4dd-6a62f196db45" },
+    { "name": "5:panel_5", "type": "visualization", "id": "soc-traffic-flow-pie" },
+    { "name": "6:panel_6", "type": "visualization", "id": "soc-system-processes-table" }
+  ]
+}

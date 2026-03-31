@@ -1,0 +1,29 @@
+{
+  "name": "pfSense Internal Egress Port Sweep",
+  "rule_id": "pfsense_internal_egress_port_sweep",
+  "description": "A single internal host is blocked on many distinct destination ports during egress activity.",
+  "risk_score": 55,
+  "severity": "medium",
+  "type": "threshold",
+  "index": ["logs-pfsense.*-*"],
+  "query": "event.dataset: \"pfsense.firewall\" and event.action: \"block\" and labels.traffic_flow: \"internal_to_external\" and source.ip:* and destination.port:*",
+  "language": "kuery",
+  "from": "now-30m",
+  "interval": "10m",
+  "enabled": true,
+  "false_positives": [],
+  "references": [],
+  "tags": ["pfsense", "soc", "egress", "recon", "custom"],
+  "threshold": {
+    "field": ["source.ip"],
+    "value": 8,
+    "cardinality": [
+      {
+        "field": "destination.port",
+        "value": 5
+      }
+    ]
+  },
+  "author": ["Codex"],
+  "version": 1
+}

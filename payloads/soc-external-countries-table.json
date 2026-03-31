@@ -1,0 +1,19 @@
+{
+  "attributes": {
+    "title": "[SOC] External Attack Countries",
+    "visState": "{\"title\":\"[SOC] External Attack Countries\",\"type\":\"table\",\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"source.geo.country_name\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMetricsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\",\"showToolbar\":true}}",
+    "uiStateJSON": "{}",
+    "description": "Blocked and geolocated source countries hitting the WAN edge.",
+    "version": 1,
+    "kibanaSavedObjectMeta": {
+      "searchSourceJSON": "{\"query\":{\"query\":\"event.dataset: \\\"pfsense.firewall\\\" and event.action: \\\"block\\\" and source.geo.country_iso_code:*\",\"language\":\"kuery\"},\"filter\":[],\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+    }
+  },
+  "references": [
+    {
+      "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+      "type": "index-pattern",
+      "id": "77991f47-88f7-42ec-8644-405a785bc40e"
+    }
+  ]
+}

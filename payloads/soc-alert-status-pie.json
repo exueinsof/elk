@@ -1,0 +1,19 @@
+{
+  "attributes": {
+    "title": "[SOC Alerts] Workflow Status",
+    "visState": "{\"title\":\"[SOC Alerts] Workflow Status\",\"type\":\"pie\",\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"kibana.alert.workflow_status\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"palette\":{\"type\":\"palette\",\"name\":\"kibana_palette\"},\"distinctColors\":true,\"legendDisplay\":\"show\",\"legendSize\":\"auto\"}}",
+    "uiStateJSON": "{}",
+    "description": "Open versus closed pfSense alerts.",
+    "version": 1,
+    "kibanaSavedObjectMeta": {
+      "searchSourceJSON": "{\"query\":{\"query\":\"kibana.alert.rule.name: pfSense*\",\"language\":\"kuery\"},\"filter\":[],\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+    }
+  },
+  "references": [
+    {
+      "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+      "type": "index-pattern",
+      "id": "security-solution-default"
+    }
+  ]
+}

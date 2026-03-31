@@ -1,0 +1,23 @@
+{
+  "name": "pfSense DHCPv6 Prefix Failure Burst",
+  "rule_id": "pfsense_dhcp6c_prefix_failure_burst",
+  "description": "Repeated DHCPv6 prefix failures may indicate ISP issues or WAN configuration instability affecting the firewall.",
+  "risk_score": 21,
+  "severity": "low",
+  "type": "threshold",
+  "index": ["logs-pfsense.*-*"],
+  "query": "event.dataset: \"pfsense.system\" and process.name: \"dhcp6c\" and message: \"advertise contains no address/prefix\"",
+  "language": "kuery",
+  "from": "now-30m",
+  "interval": "10m",
+  "enabled": true,
+  "false_positives": [],
+  "references": [],
+  "tags": ["pfsense", "soc", "system", "dhcp6c", "custom"],
+  "threshold": {
+    "field": ["process.name"],
+    "value": 5
+  },
+  "author": ["Codex"],
+  "version": 1
+}

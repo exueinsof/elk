@@ -1,0 +1,13 @@
+{
+  "attributes": {
+    "title": "[EXEC] Quick Navigation",
+    "visState": "{\"title\":\"[EXEC] Quick Navigation\",\"type\":\"markdown\",\"params\":{\"fontSize\":20,\"openLinksInNewTab\":false,\"markdown\":\"### Executive Drilldown\\n[Open pfSense Alerts](/app/dashboards#/view/soc-pfsense-alerts-open)\\n\\n[High Severity Open Alerts](/app/dashboards#/view/soc-pfsense-alerts-high-open)\\n\\n[All pfSense Alerts](/app/dashboards#/view/soc-pfsense-alerts)\"},\"aggs\":[]}",
+    "uiStateJSON": "{}",
+    "description": "Reliable click-through links for executive alert drilldown.",
+    "version": 1,
+    "kibanaSavedObjectMeta": {
+      "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+    }
+  },
+  "references": []
+}

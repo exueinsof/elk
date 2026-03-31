@@ -1,0 +1,23 @@
+{
+  "name": "pfSense Multicast Block Storm",
+  "rule_id": "pfsense_multicast_block_storm",
+  "description": "High volume of blocked multicast traffic from the same source, useful for spotting noisy hosts and routing issues.",
+  "risk_score": 21,
+  "severity": "low",
+  "type": "threshold",
+  "index": ["logs-pfsense.*-*"],
+  "query": "event.dataset: \"pfsense.firewall\" and event.action: \"block\" and source.ip:* and destination.ip:(224.0.0.1 or 224.0.0.2)",
+  "language": "kuery",
+  "from": "now-15m",
+  "interval": "5m",
+  "enabled": true,
+  "false_positives": [],
+  "references": [],
+  "tags": ["pfsense", "soc", "multicast", "noise", "custom"],
+  "threshold": {
+    "field": ["source.ip"],
+    "value": 10
+  },
+  "author": ["Codex"],
+  "version": 1
+}

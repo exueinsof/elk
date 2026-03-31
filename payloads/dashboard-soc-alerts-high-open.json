@@ -1,0 +1,23 @@
+{
+  "attributes": {
+    "title": "SOC pfSense Alerts - High Severity Open",
+    "hits": 0,
+    "description": "High severity open pfSense alerts for executive drilldown and triage.",
+    "panelsJSON": "[{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":0,\"w\":24,\"h\":12,\"i\":\"1\"},\"panelIndex\":\"1\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_1\"},{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":0,\"w\":12,\"h\":8,\"i\":\"2\"},\"panelIndex\":\"2\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_2\"},{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":36,\"y\":0,\"w\":12,\"h\":8,\"i\":\"3\"},\"panelIndex\":\"3\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_3\"},{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":8,\"w\":12,\"h\":9,\"i\":\"4\"},\"panelIndex\":\"4\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_4\"},{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":36,\"y\":8,\"w\":12,\"h\":9,\"i\":\"5\"},\"panelIndex\":\"5\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_5\"}]",
+    "optionsJSON": "{\"useMargins\":true,\"hidePanelTitles\":false}",
+    "version": 1,
+    "timeRestore": true,
+    "kibanaSavedObjectMeta": {
+      "searchSourceJSON": "{\"query\":{\"query\":\"kibana.alert.rule.name: pfSense* and kibana.alert.workflow_status: open and kibana.alert.severity: high\",\"language\":\"kuery\"},\"filter\":[]}"
+    },
+    "timeFrom": "now-24h",
+    "timeTo": "now"
+  },
+  "references": [
+    { "name": "1:panel_1", "type": "visualization", "id": "soc-alert-timeline" },
+    { "name": "2:panel_2", "type": "visualization", "id": "soc-alert-severity-pie" },
+    { "name": "3:panel_3", "type": "visualization", "id": "soc-alert-status-pie" },
+    { "name": "4:panel_4", "type": "visualization", "id": "soc-alert-rules-table" },
+    { "name": "5:panel_5", "type": "visualization", "id": "soc-alert-sources-table" }
+  ]
+}

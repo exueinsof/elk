@@ -1,0 +1,25 @@
+{
+  "attributes": {
+    "title": "SOC Executive - pfSense",
+    "hits": 0,
+    "description": "Minimal executive dashboard to assess attack pressure and alert sequence at a glance.",
+    "panelsJSON": "[{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":0,\"w\":8,\"h\":7,\"i\":\"1\"},\"panelIndex\":\"1\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_1\"},{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":8,\"y\":0,\"w\":8,\"h\":7,\"i\":\"2\"},\"panelIndex\":\"2\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_2\"},{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":16,\"y\":0,\"w\":8,\"h\":7,\"i\":\"3\"},\"panelIndex\":\"3\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_3\"},{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":0,\"w\":12,\"h\":7,\"i\":\"4\"},\"panelIndex\":\"4\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_4\"},{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":36,\"y\":0,\"w\":12,\"h\":7,\"i\":\"5\"},\"panelIndex\":\"5\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_5\"},{\"version\":\"8.0.0\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":7,\"w\":48,\"h\":21,\"i\":\"6\"},\"panelIndex\":\"6\",\"embeddableConfig\":{\"enhancements\":{\"dynamicActions\":{\"events\":[{\"eventId\":\"execTimelineOpenAlerts\",\"triggers\":[\"FILTER_TRIGGER\"],\"action\":{\"factoryId\":\"DASHBOARD_TO_DASHBOARD_DRILLDOWN\",\"name\":\"Open alert details from timeline\",\"config\":{\"useCurrentDateRange\":true,\"useCurrentFilters\":true,\"openInNewTab\":false}}}]}}},\"panelRefName\":\"panel_6\"}]",
+    "optionsJSON": "{\"useMargins\":true,\"hidePanelTitles\":false}",
+    "version": 1,
+    "timeRestore": true,
+    "kibanaSavedObjectMeta": {
+      "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+    },
+    "timeFrom": "now-24h",
+    "timeTo": "now"
+  },
+  "references": [
+    { "name": "1:panel_1", "type": "visualization", "id": "soc-exec-open-alerts-metric" },
+    { "name": "2:panel_2", "type": "visualization", "id": "soc-exec-high-alerts-metric" },
+    { "name": "3:panel_3", "type": "visualization", "id": "soc-exec-attackers-metric" },
+    { "name": "4:panel_4", "type": "visualization", "id": "soc-exec-top-rules-table" },
+    { "name": "5:panel_5", "type": "visualization", "id": "soc-exec-top-sources-table" },
+    { "name": "6:panel_6", "type": "visualization", "id": "soc-exec-sequence-timeline" },
+    { "name": "drilldown:DASHBOARD_TO_DASHBOARD_DRILLDOWN:execTimelineOpenAlerts:dashboardId", "type": "dashboard", "id": "soc-pfsense-alerts" }
+  ]
+}

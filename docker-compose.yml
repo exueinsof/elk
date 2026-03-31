@@ -1,0 +1,117 @@
+services:
+  setup:
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.3.2
+    container_name: elk-setup
+    user: "0"
+    env_file:
+      - .env
+    volumes:
+      - ./certs:/usr/share/elasticsearch/config/certs
+      - ./setup.sh:/usr/local/bin/setup.sh:ro
+    entrypoint: ["/bin/bash", "/usr/local/bin/setup.sh"]
+    restart: "no"
+
+  bootstrap:
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.3.2
+    container_name: elk-bootstrap
+    user: "0"
+    env_file:
+      - .env
+    volumes:
+      - ./certs:/usr/share/elasticsearch/config/certs:ro
+      - ./bootstrap.sh:/usr/local/bin/bootstrap.sh:ro
+    entrypoint: ["/bin/bash", "/usr/local/bin/bootstrap.sh"]
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    restart: "no"
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.3.2
+    container_name: elasticsearch
+    env_file:
+      - .env
+    environment:
+      - node.name=elasticsearch
+      - cluster.name=elk-docker-cluster
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - xpack.license.self_generated.type=basic
+      - xpack.security.enabled=true
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
+      - xpack.security.http.ssl.enabled=true
+      - xpack.security.http.ssl.certificate=/usr/share/elasticsearch/config/certs/elasticsearch/elasticsearch.crt
+      - xpack.security.http.ssl.key=/usr/share/elasticsearch/config/certs/elasticsearch/elasticsearch.key
+      - xpack.security.http.ssl.certificate_authorities=/usr/share/elasticsearch/config/certs/ca/ca.crt
+      - xpack.security.transport.ssl.enabled=true
+      - xpack.security.transport.ssl.verification_mode=certificate
+      - xpack.security.transport.ssl.certificate=/usr/share/elasticsearch/config/certs/elasticsearch/elasticsearch.crt
+      - xpack.security.transport.ssl.key=/usr/share/elasticsearch/config/certs/elasticsearch/elasticsearch.key
+      - xpack.security.transport.ssl.certificate_authorities=/usr/share/elasticsearch/config/certs/ca/ca.crt
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g
+    ports:
+      - "127.0.0.1:9200:9200"
+    volumes:
+      - ./certs:/usr/share/elasticsearch/config/certs:ro
+      - es_data:/usr/share/elasticsearch/data
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    depends_on:
+      setup:
+        condition: service_completed_successfully
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl --silent --fail --cacert /usr/share/elasticsearch/config/certs/ca/ca.crt -u elastic:${ELASTIC_PASSWORD} https://localhost:9200 >/dev/null"
+        ]
+      interval: 20s
+      timeout: 10s
+      retries: 20
+    restart: unless-stopped
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:9.3.2
+    container_name: logstash
+    env_file:
+      - .env
+    environment:
+      - LS_JAVA_OPTS=-Xms512m -Xmx512m
+    volumes:
+      - ./certs:/usr/share/logstash/config/certs:ro
+      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro
+    ports:
+      - "5140:5140/udp"
+    depends_on:
+      bootstrap:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:9.3.2
+    container_name: kibana
+    env_file:
+      - .env
+    volumes:
+      - ./certs:/usr/share/kibana/config/certs:ro
+      - ./kibana.yml:/usr/share/kibana/config/kibana.yml:ro
+    ports:
+      - "5601:5601"
+    depends_on:
+      bootstrap:
+        condition: service_completed_successfully
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl --silent --fail --insecure https://localhost:5601/api/status >/dev/null"
+        ]
+      interval: 20s
+      timeout: 10s
+      retries: 30
+    restart: unless-stopped
+
+volumes:
+  es_data:

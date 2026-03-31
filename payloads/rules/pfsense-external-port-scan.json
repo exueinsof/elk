@@ -1,0 +1,29 @@
+{
+  "name": "pfSense Possible External Port Scan",
+  "rule_id": "pfsense_possible_external_port_scan",
+  "description": "Multiple blocked inbound connections from the same external source across several destination ports.",
+  "risk_score": 75,
+  "severity": "high",
+  "type": "threshold",
+  "index": ["logs-pfsense.*-*"],
+  "query": "event.dataset: \"pfsense.firewall\" and event.action: \"block\" and labels.traffic_flow: \"external_to_internal\" and source.ip:* and destination.port:*",
+  "language": "kuery",
+  "from": "now-30m",
+  "interval": "10m",
+  "enabled": true,
+  "false_positives": [],
+  "references": [],
+  "tags": ["pfsense", "soc", "port-scan", "wan", "custom"],
+  "threshold": {
+    "field": ["source.ip"],
+    "value": 5,
+    "cardinality": [
+      {
+        "field": "destination.port",
+        "value": 3
+      }
+    ]
+  },
+  "author": ["Codex"],
+  "version": 1
+}

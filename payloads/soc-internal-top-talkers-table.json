@@ -1,0 +1,19 @@
+{
+  "attributes": {
+    "title": "[SOC] Top Internal Talkers",
+    "visState": "{\"title\":\"[SOC] Top Internal Talkers\",\"type\":\"table\",\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"source.ip\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMetricsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\",\"showToolbar\":true}}",
+    "uiStateJSON": "{}",
+    "description": "Most active internal sources generating egress traffic.",
+    "version": 1,
+    "kibanaSavedObjectMeta": {
+      "searchSourceJSON": "{\"query\":{\"query\":\"event.dataset: \\\"pfsense.firewall\\\" and labels.traffic_flow: \\\"internal_to_external\\\"\",\"language\":\"kuery\"},\"filter\":[],\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+    }
+  },
+  "references": [
+    {
+      "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+      "type": "index-pattern",
+      "id": "77991f47-88f7-42ec-8644-405a785bc40e"
+    }
+  ]
+}

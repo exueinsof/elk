@@ -1,0 +1,19 @@
+{
+  "attributes": {
+    "title": "[EXEC] Active Source IPs",
+    "visState": "{\"title\":\"[EXEC] Active Source IPs\",\"type\":\"table\",\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"source.ip\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"params\":{\"perPage\":5,\"showPartialRows\":false,\"showMetricsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\",\"showToolbar\":true}}",
+    "uiStateJSON": "{}",
+    "description": "Most active source IPs across open pfSense alerts.",
+    "version": 1,
+    "kibanaSavedObjectMeta": {
+      "searchSourceJSON": "{\"query\":{\"query\":\"kibana.alert.rule.name: pfSense* and kibana.alert.workflow_status: open and source.ip:*\",\"language\":\"kuery\"},\"filter\":[],\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+    }
+  },
+  "references": [
+    {
+      "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+      "type": "index-pattern",
+      "id": "security-solution-default"
+    }
+  ]
+}

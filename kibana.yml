@@ -1,0 +1,23 @@
+server.name: kibana
+server.host: 0.0.0.0
+server.publicBaseUrl: ${PUBLIC_KIBANA_URL}
+server.ssl.enabled: true
+server.ssl.certificate: /usr/share/kibana/config/certs/kibana/kibana.crt
+server.ssl.key: /usr/share/kibana/config/certs/kibana/kibana.key
+server.securityResponseHeaders.strictTransportSecurity: "max-age=31536000; includeSubDomains"
+server.securityResponseHeaders.xContentTypeOptions: nosniff
+server.securityResponseHeaders.referrerPolicy: strict-origin-when-cross-origin
+
+elasticsearch.hosts: ["https://elasticsearch:9200"]
+elasticsearch.username: kibana_system
+elasticsearch.password: ${KIBANA_PASSWORD}
+elasticsearch.ssl.certificateAuthorities: ["/usr/share/kibana/config/certs/ca/ca.crt"]
+
+xpack.security.encryptionKey: ${KIBANA_ENCRYPTION_KEY}
+xpack.security.secureCookies: true
+xpack.security.sameSiteCookies: Strict
+xpack.encryptedSavedObjects.encryptionKey: ${KIBANA_ENCRYPTION_KEY}
+xpack.reporting.encryptionKey: ${KIBANA_ENCRYPTION_KEY}
+
+xpack.fleet.agentless.enabled: false
+telemetry.optIn: false

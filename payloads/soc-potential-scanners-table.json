@@ -1,0 +1,19 @@
+{
+  "attributes": {
+    "title": "[SOC] Potential Scanners",
+    "visState": "{\"title\":\"[SOC] Potential Scanners\",\"type\":\"table\",\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"3\",\"enabled\":true,\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"destination.port\",\"customLabel\":\"Unique Dest Ports\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"source.ip\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"3\"}}],\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMetricsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\",\"showToolbar\":true}}",
+    "uiStateJSON": "{}",
+    "description": "",
+    "version": 1,
+    "kibanaSavedObjectMeta": {
+      "searchSourceJSON": "{\"query\":{\"query\":\"event.dataset: \\\"pfsense.firewall\\\"\",\"language\":\"kuery\"},\"filter\":[],\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+    }
+  },
+  "references": [
+    {
+      "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+      "type": "index-pattern",
+      "id": "77991f47-88f7-42ec-8644-405a785bc40e"
+    }
+  ]
+}

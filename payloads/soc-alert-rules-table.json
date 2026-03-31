@@ -1,0 +1,19 @@
+{
+  "attributes": {
+    "title": "[SOC Alerts] Top Alerting Rules",
+    "visState": "{\"title\":\"[SOC Alerts] Top Alerting Rules\",\"type\":\"table\",\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"kibana.alert.rule.name\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMetricsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\",\"showToolbar\":true}}",
+    "uiStateJSON": "{}",
+    "description": "Rules generating the highest number of pfSense alerts.",
+    "version": 1,
+    "kibanaSavedObjectMeta": {
+      "searchSourceJSON": "{\"query\":{\"query\":\"kibana.alert.rule.name: pfSense*\",\"language\":\"kuery\"},\"filter\":[],\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+    }
+  },
+  "references": [
+    {
+      "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+      "type": "index-pattern",
+      "id": "security-solution-default"
+    }
+  ]
+}

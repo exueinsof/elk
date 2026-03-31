@@ -1,0 +1,19 @@
+{
+  "attributes": {
+    "title": "[SOC] Egress Destination Ports",
+    "visState": "{\"title\":\"[SOC] Egress Destination Ports\",\"type\":\"pie\",\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"destination.port\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"palette\":{\"type\":\"palette\",\"name\":\"kibana_palette\"},\"distinctColors\":true,\"legendDisplay\":\"show\",\"legendSize\":\"auto\"}}",
+    "uiStateJSON": "{}",
+    "description": "Primary destination ports used by internal egress traffic.",
+    "version": 1,
+    "kibanaSavedObjectMeta": {
+      "searchSourceJSON": "{\"query\":{\"query\":\"event.dataset: \\\"pfsense.firewall\\\" and labels.traffic_flow: \\\"internal_to_external\\\"\",\"language\":\"kuery\"},\"filter\":[],\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+    }
+  },
+  "references": [
+    {
+      "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+      "type": "index-pattern",
+      "id": "77991f47-88f7-42ec-8644-405a785bc40e"
+    }
+  ]
+}

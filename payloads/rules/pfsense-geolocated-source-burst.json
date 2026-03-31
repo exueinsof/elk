@@ -1,0 +1,23 @@
+{
+  "name": "pfSense Geolocated Blocked Source Burst",
+  "rule_id": "pfsense_geolocated_source_burst",
+  "description": "Repeated blocked activity from a geolocated external source IP.",
+  "risk_score": 47,
+  "severity": "medium",
+  "type": "threshold",
+  "index": ["logs-pfsense.*-*"],
+  "query": "event.dataset: \"pfsense.firewall\" and event.action: \"block\" and source.geo.country_iso_code:* and source.ip:*",
+  "language": "kuery",
+  "from": "now-30m",
+  "interval": "10m",
+  "enabled": true,
+  "false_positives": [],
+  "references": [],
+  "tags": ["pfsense", "soc", "geoip", "custom"],
+  "threshold": {
+    "field": ["source.ip"],
+    "value": 2
+  },
+  "author": ["Codex"],
+  "version": 1
+}

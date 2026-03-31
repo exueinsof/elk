@@ -1,0 +1,13 @@
+{
+  "attributes": {
+    "title": "[EXEC] High Severity Open Alerts",
+    "visState": "{\"title\":\"[EXEC] High Severity Open Alerts\",\"type\":\"metrics\",\"params\":{\"id\":\"exec-high-alerts-panel\",\"type\":\"markdown\",\"series\":[{\"id\":\"exec-high-alerts-series\",\"label\":\"High Alerts\",\"split_mode\":\"everything\",\"metrics\":[{\"id\":\"exec-high-alerts-count\",\"type\":\"count\"}],\"separate_axis\":0,\"axis_position\":\"right\",\"formatter\":\"number\",\"value_template\":\"{{value}}\",\"chart_type\":\"line\",\"line_width\":1,\"point_size\":1,\"fill\":\"0.5\",\"stacked\":\"none\",\"override_index_pattern\":0,\"series_drop_last_bucket\":0}],\"time_field\":\"@timestamp\",\"index_pattern\":\".alerts-security.alerts-default\",\"use_kibana_indexes\":false,\"interval\":\"1y\",\"time_range_mode\":\"entire_time_range\",\"axis_position\":\"left\",\"axis_formatter\":\"number\",\"axis_scale\":\"normal\",\"show_legend\":0,\"truncate_legend\":1,\"max_lines_legend\":1,\"show_grid\":0,\"tooltip_mode\":\"show_all\",\"drop_last_bucket\":0,\"background_color\":\"transparent\",\"filter\":{\"query\":\"kibana.alert.rule.name: pfSense* and kibana.alert.workflow_status: open and kibana.alert.severity: high\",\"language\":\"kuery\"},\"markdown\":\"{{#each _all}}## [{{ last.formatted }}](/app/dashboards#/view/soc-pfsense-alerts-high-open)\\n\\nHigh Severity Open Alerts{{/each}}\",\"markdown_css\":\"h2{margin:0 0 10px 0;text-align:center;font-size:48px;line-height:1.05}h2 a{color:#ff8a8a;text-decoration:none}h2 a:hover{text-decoration:underline}p{margin:0;text-align:center;font-size:16px;line-height:1.25;color:#ffc2c2}\",\"markdown_vertical_align\":\"middle\",\"markdown_scrollbars\":false,\"markdown_openLinksInNewTab\":false},\"aggs\":[]}",
+    "uiStateJSON": "{}",
+    "description": "Executive KPI for high severity open alerts with clickable value.",
+    "version": 1,
+    "kibanaSavedObjectMeta": {
+      "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+    }
+  },
+  "references": []
+}

@@ -1,0 +1,19 @@
+{
+  "attributes": {
+    "title": "[SOC] Traffic Flow Split",
+    "visState": "{\"title\":\"[SOC] Traffic Flow Split\",\"type\":\"pie\",\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"labels.traffic_flow\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"palette\":{\"type\":\"palette\",\"name\":\"kibana_palette\"},\"distinctColors\":true,\"legendDisplay\":\"show\",\"legendSize\":\"auto\"}}",
+    "uiStateJSON": "{}",
+    "description": "",
+    "version": 1,
+    "kibanaSavedObjectMeta": {
+      "searchSourceJSON": "{\"query\":{\"query\":\"event.dataset: \\\"pfsense.firewall\\\"\",\"language\":\"kuery\"},\"filter\":[],\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+    }
+  },
+  "references": [
+    {
+      "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+      "type": "index-pattern",
+      "id": "77991f47-88f7-42ec-8644-405a785bc40e"
+    }
+  ]
+}
